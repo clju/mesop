@@ -1,2 +1,2 @@
 from .page import page as page
-from .serve import server as server
+from .serve import serve as serve

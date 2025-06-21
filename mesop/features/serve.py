@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Any, Callable
 
 from mesop.runtime import runtime
 
@@ -6,8 +6,8 @@ from mesop.runtime import runtime
 def serve(
   *,
   rule: str,
-) -> Callable[[Callable[[], None]], Callable[[], None]]:
-  def decorator(func: Callable[[], None]) -> Callable[[], None]:
+) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
+  def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
     runtime().register_handler(
       rule=rule,
       handler=func,
